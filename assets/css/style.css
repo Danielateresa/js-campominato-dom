@@ -26,3 +26,11 @@ body {
 .bomb_found {
     background-color: rgb(255, 0, 0);
 }
+
+.looser {
+    height: 400px;
+    padding-top: 170px;
+    position: absolute;
+    top: 300px;
+    left: 0;
+}

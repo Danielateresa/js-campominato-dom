@@ -70,7 +70,7 @@ buttonEl.addEventListener('click', function () {
         //cliccando sulla singola cella questa cambia colore 
         cellString.addEventListener('click', function () {
             //this si riferisce a cellstring, ossia la cella
-            this.classList.toggle('clicked_cell');
+            this.classList.add('clicked_cell');
             //compare in console innertext che rappresenta il numero legato alla cella
             console.log(this.innerText);
 
@@ -93,9 +93,10 @@ buttonEl.addEventListener('click', function () {
                 if (!bombNumbersList.includes(bombNumber)) {
                     bombNumbersList.push(bombNumber);
                     console.log('array delle bombe', bombNumbersList);
+
                 }
             }
-
+            const looserEl = document.querySelector('.looser');
             //provo a verificare se il numero della cella è presente nell'array delle bombe
             //con il ciclo for potrei scorrere nell'array
             for (let i = 0; i < bombNumbersList.length; i++) {
@@ -105,6 +106,7 @@ buttonEl.addEventListener('click', function () {
                 if (bombNumber === bombArrayItem) {
                     console.log('hai trovato una bomba');
                     cellString.classList.add('bomb_found');
+                    looserEl.classList.remove('d-none');
                 }
             }
 
