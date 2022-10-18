@@ -92,15 +92,17 @@ buttonEl.addEventListener('click', function () {
                 //se il numero generato non si trova nella lista lo aggiungo
                 if (!bombNumbersList.includes(bombNumber)) {
                     bombNumbersList.push(bombNumber);
-                    console.log('array delle bombe', bombNumbersList);
+
 
                 }
-            }
+            } console.log('array delle bombe', bombNumbersList);
 
             //array dei numeri rivelati che non sono bombe (bombNumber)
-            const notBombList = [];
+            let notBombList = [];
             //finchè la lista dei numeri non bombe è diversa dal totale delle celle - 16
-            //potrei trasformarlo in una funzione per poi aggiungerla ad un ciclo?
+            //potrei trasformarlo in un ciclo
+            //mi serve inserire i singoli numeri non bombe in un array
+
             if (notBombList.length !== (totalCells - 16)) {
                 notBombList.push(bombNumber);
                 console.log('array delle celle non bombe', notBombList);
@@ -155,6 +157,19 @@ function cellElementGenerator(tagname, cssClass, n, cellsRow) {
 function getRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+
+//funzione del numero non bomba
+function singleNotBombNumber(notBombArray, bombNum, totCells) {
+
+    if (notBombArray.length !== (totCells - 16)) {
+        notBombArray.push(bombNum);
+        console.log('array delle celle non bombe', notBombArray);
+        return notBombArray
+    }
+}
+
+
 
 //const bombNumber = getRandomNumber(1, 16);
 //console.log(bombNumber);
