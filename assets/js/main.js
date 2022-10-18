@@ -73,6 +73,25 @@ buttonEl.addEventListener('click', function () {
             this.classList.toggle('clicked_cell');
             //compare in console innertext che rappresenta il numero legato alla cella
             console.log(this.innerText);
+
+
+            //ad ogni click su una vella deve generarsi un numero, ma come?
+            const bombNumber = getRandomNumber(1, totalCells);
+            console.log(bombNumber);
+
+
+            //il ciclo mi restituisce la lista intera dei 16 numeri da 1 al numero massimo della griglia, invece ne voglio uno x cella
+            /* const bombNumbersList = [];
+            while (bombNumbersList.length !== 16) {
+                //finchè la lunghezza della lista è diversa da 16 inserisco un numero casuale generato dalla funzione
+
+                //se il numero generato non si trova nella lista lo aggiungo
+                if (!bombNumbersList.includes(bombNumber)) {
+                    bombNumbersList.push(bombNumber);
+
+                }
+            } */
+
         })
     }
 
@@ -100,10 +119,24 @@ function getRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-const bombNumber = getRandomNumber(1, 16);
-console.log(bombNumber);
+//const bombNumber = getRandomNumber(1, 16);
+//console.log(bombNumber);
 
 //devo creare un array delle bombe
-//all'inizio la lista è vuota, i numeri verranno generati man mano e non dovranno ripetesi.
+//all'inizio la lista è vuota, i numeri verranno generati man mano fino a 16 totali e non dovranno ripetesi.
 //se un numero è già presente non deve essere aggiunto alla lista
-const bombNumbersList = [];
+/* function createBombsList(min, max) {
+    const bombNumbersList = [];
+    while (bombNumbersList.length !== 16) {
+        //finchè la lunghezza della lista è diversa da 16 inserisco un numero casuale generato dalla funzione
+        const bombNumber = getRandomNumber(1, totalCells);
+        //se il numero generato non si trova nella lista lo aggiungo
+        if (!bombNumbersList.includes(bombNumber)) {
+            bombNumbersList.push(bombNumber);
+            //console.log(bombNumbersList);
+        }
+    }
+    //se non metto return avrò un valore undefined
+    return bombNumbersList
+} */
+//const totalBombs = createBombsList(1, totalCells);
