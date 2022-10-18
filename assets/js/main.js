@@ -75,22 +75,40 @@ buttonEl.addEventListener('click', function () {
             console.log(this.innerText);
 
 
-            //ad ogni click su una vella deve generarsi un numero, ma come?
+            //ad ogni click su una cella deve generarsi un numero, ma come?
+            //gener o il numero casuale singolo con la funzione
             const bombNumber = getRandomNumber(1, totalCells);
-            console.log(bombNumber);
+            console.log('bomba della cella', bombNumber);
+            //ma una cella può contenere un solo numero
 
 
-            //il ciclo mi restituisce la lista intera dei 16 numeri da 1 al numero massimo della griglia, invece ne voglio uno x cella
-            /* const bombNumbersList = [];
+
+            //array delle bombe
+            //il ciclo mi restituisce la lista intera dei 16 numeri da 1 al numero massimo della griglia
+            const bombNumbersList = [];
             while (bombNumbersList.length !== 16) {
                 //finchè la lunghezza della lista è diversa da 16 inserisco un numero casuale generato dalla funzione
-
+                const bombNumber = getRandomNumber(1, totalCells);
                 //se il numero generato non si trova nella lista lo aggiungo
                 if (!bombNumbersList.includes(bombNumber)) {
                     bombNumbersList.push(bombNumber);
-
+                    console.log('array delle bombe', bombNumbersList);
                 }
-            } */
+            }
+
+            //provo a verificare se il numero della cella è presente nell'array delle bombe
+            //con il ciclo for potrei scorrere nell'array
+            for (let i = 0; i < bombNumbersList.length; i++) {
+                //seleziono il singolo numero dell'array delle bombe
+                const bombArrayItem = bombNumbersList[i];
+                //se il numero della cella si trova nella lista dell'array delle bombe generato, la cella si colora di rosso
+                if (bombNumber === bombArrayItem) {
+                    console.log('hai trovato una bomba');
+                    cellString.classList.add('bomb_found');
+                }
+            }
+
+
 
         })
     }

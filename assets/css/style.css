@@ -22,3 +22,7 @@ body {
 .clicked_cell {
     background-color: blue;
 }
+
+.bomb_found {
+    background-color: rgb(255, 0, 0);
+}
