@@ -76,9 +76,9 @@ buttonEl.addEventListener('click', function () {
 
 
             //ad ogni click su una cella deve generarsi un numero, ma come?
-            //gener o il numero casuale singolo con la funzione
+            //genero il numero casuale singolo con la funzione
             const bombNumber = getRandomNumber(1, totalCells);
-            console.log('bomba della cella', bombNumber);
+            console.log('numero della cella', bombNumber);
             //ma una cella può contenere un solo numero
 
 
@@ -96,6 +96,18 @@ buttonEl.addEventListener('click', function () {
 
                 }
             }
+
+            //array dei numeri rivelati che non sono bombe (bombNumber)
+            const notBombList = [];
+            //finchè la lista dei numeri non bombe è diversa dal totale delle celle - 16
+            //potrei trasformarlo in una funzione per poi aggiungerla ad un ciclo?
+            if (notBombList.length !== (totalCells - 16)) {
+                notBombList.push(bombNumber);
+                console.log('array delle celle non bombe', notBombList);
+            }
+
+
+
             const looserEl = document.querySelector('.looser');
             //provo a verificare se il numero della cella è presente nell'array delle bombe
             //con il ciclo for potrei scorrere nell'array
@@ -108,6 +120,11 @@ buttonEl.addEventListener('click', function () {
                     cellString.classList.add('bomb_found');
                     looserEl.classList.remove('d-none');
                 }
+                //l'utente finisce il gioco quando rivela tutte le celle che non sono bombe,
+                //ossia tutti i numeri non presenti nell'array delle bombe
+                //si potrebbe creare un array con i numeri rivelati che non sono bombe
+
+                //se l'arrey di non bombe è uguale al numero delle celle totali-16 (totalCells-16) la partita finisce con l'utente vincitore
             }
 
 
