@@ -88,3 +88,22 @@ function cellElementGenerator(tagname, cssClass, n, cellsRow) {
 }
 
 
+//Il computer deve generare 16 numeri casuali nello stesso range della difficoltà prescelta: le bombe.
+// -Math random 
+// dvrò impostare un valore minimo e massimo 1-16
+// let/const
+//ciclo while per generare i numeri finchè non arriva al massimo
+
+//geneare numeri 16 casuali
+//la funzione genera i numeri casuali
+function getRandomNumber(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+const bombNumber = getRandomNumber(1, 16);
+console.log(bombNumber);
+
+//devo creare un array delle bombe
+//all'inizio la lista è vuota, i numeri verranno generati man mano e non dovranno ripetesi.
+//se un numero è già presente non deve essere aggiunto alla lista
+const bombNumbersList = [];
